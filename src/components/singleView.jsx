@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const SingleView = (props) => {
     const { item, setSelectedItem } = props;
     return (
@@ -15,8 +17,12 @@ const SingleView = (props) => {
                 </dialog>
             )}
         </>
-
     );
+};
+
+SingleView.propTypes = {
+    item: PropTypes.object.isRequired,
+    setMediaItem: PropTypes.func.isRequired,
 };
 
 export default SingleView;
