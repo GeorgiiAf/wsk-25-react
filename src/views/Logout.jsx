@@ -1,5 +1,8 @@
+import { useUserContext } from '../hooks/contextHooks';
+
 const Logout = () => {
-    //TODO
+    const { handleLogout } = useUserContext();
+    handleLogout();
     return null;
 };
 

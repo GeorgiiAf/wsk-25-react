@@ -1,21 +1,21 @@
 import useForm from '../hooks/formHooks';
-import { useAuthentication } from '../hooks/apiHooks';
-import { useNavigate } from 'react-router';
+import { useUserContext } from '../hooks/contextHooks';
 
 // LoginForm.jsx
 const LoginForm = () => {
-    const { postLogin } = useAuthentication();
-    const navigate = useNavigate();
     const initValues = {
         username: '',
         password: '',
     };
 
+    const { handleLogin } = useUserContext();
+
     const doLogin = async () => {
-        console.log('Login funktiota kutsuttu');
-        console.log(inputs);
-        await postLogin(inputs);
-        navigate('/');
+        try {
+            await handleLogin(inputs);
+        } catch (e) {
+            alert(e.message);
+        }
     };
 
     const { inputs, handleInputChange, handleSubmit } = useForm(
