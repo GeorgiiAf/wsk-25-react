@@ -1,6 +1,6 @@
 import MediaRow from '../components/MediaRow';
 import SingleView from '../components/SingleView';
-import useMedia from '../hooks/apiHooks';
+import { useMedia } from '../hooks/apiHooks';
 import { useState } from 'react';
 
 const Home = () => {
@@ -38,4 +38,5 @@ const Home = () => {
         </>
     );
 };
+
 export default Home;

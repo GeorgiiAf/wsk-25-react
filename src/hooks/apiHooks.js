@@ -35,4 +35,59 @@ const useMedia = () => {
     return { mediaArray };
 };
 
-export default useMedia;
+const useAuthentication = () => {
+    const postLogin = async (inputs) => {
+        const fetchOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(inputs),
+        };
+        const loginResult = await fetchData(
+            import.meta.env.VITE_AUTH_API + '/auth/login',
+            fetchOptions,
+        );
+        console.log('loginresult', loginResult);
+        window.localStorage.setItem('token', loginResult.token);
+        return loginResult;
+    };
+
+    return { postLogin };
+};
+
+const useUser = () => {
+    const postUser = async (inputs) => {
+        const fetchOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(inputs),
+        };
+        const registerResult = await fetchData(
+            import.meta.env.VITE_AUTH_API + '/users',
+            fetchOptions,
+        );
+        console.log('Post user results:  ', registerResult);
+        return registerResult;
+    };
+
+    const getUserByToken = async (token) => {
+        const fetchOptions = {
+            headers: {
+                Authorization: 'Bearer: ' + token,
+            },
+        };
+        const userResult = await fetchData(
+            import.meta.env.VITE_AUTH_API + '/users/token',
+            fetchOptions,
+        );
+        console.log('userResult: ', userResult);
+        return userResult;
+    };
+
+    return { getUserByToken, postUser };
+};
+
+export { useMedia, useAuthentication, useUser };
