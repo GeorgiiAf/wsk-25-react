@@ -1,0 +1,24 @@
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    --color-sky-50: #dcd0ff;
+    --color-sky-950: #3b0a45;
+
+    font-family: var(--font-sans);
+
+    color-scheme: light dark;
+    color: var(--color-sky-50);
+    background-color: var(--color-sky-950);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    max-width: var(--container-7xl);
+    padding: calc(var(--spacing) * 8);
+  }
+}
