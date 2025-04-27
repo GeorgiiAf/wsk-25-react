@@ -1,10 +1,10 @@
-import {useEffect, useState} from 'react';
-import {useUser} from '../hooks/apiHooks';
+import { useEffect, useState } from 'react';
+import { useUser } from '../hooks/apiHooks';
 
 const Profile = () => {
   const [user, setUser] = useState(null);
 
-  const {getUserByToken} = useUser();
+  const { getUserByToken } = useUser();
 
   useEffect(() => {
     const fetchUser = async () => {

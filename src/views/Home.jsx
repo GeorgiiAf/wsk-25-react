@@ -1,15 +1,16 @@
 import MediaRow from '../components/MediaRow';
 import SingleView from '../components/SingleView';
-import {useMedia} from '../hooks/apiHooks';
-import {useState} from 'react';
+import { useMedia } from '../hooks/apiHooks';
+import { useState } from 'react';
 
 const Home = () => {
-  const {mediaArray} = useMedia();
+  const { mediaArray } = useMedia();
   const [selectedItem, setSelectedItem] = useState(null);
 
   return (
     <>
-      <h2 className="text-2xl my-4 font-mono">My Media</h2>
+      <h2 className="my-4 text-2xl font-bold">My Media</h2>
+
       <table>
         <thead>
           <tr className="*:p-4 *:border-2 *:border-[#ccc]">
